@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var emojis = []
-    let vehicleEmojis = ["🚀", "🚴‍♀️", "⛴", "🚖",
-                         "✈️", "🚗", "🚙", "🚛"]
-    let faceEmojis = ["😀", "😃", "😄", "😁",
-                      "😅", "😂", "🤣", "🥲"]
-    let flagEmojis = ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈",
-                      "🇫🇲", "🇸🇨", "🇩🇰", "🇦🇪"]
-    @State var emojiCount = 3
+    @State var emojis = ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈",
+                         "🇫🇲", "🇸🇨", "🇩🇰", "🇦🇪"]
+    
+    @State var emojiCount = 8
     
     var body: some View {
         VStack {
@@ -30,14 +26,61 @@ struct ContentView: View {
             .foregroundColor(.red)
             Spacer()
             HStack {
-                remove
+                vehicleIcon
                 Spacer()
-                add
+                faceIcon
+                Spacer()
+                flagIcon
             }
             .font(.largeTitle)
             .padding(.horizontal)
         }
         .padding(.horizontal)
+    }
+    
+    var vehicleIcon: some View {
+        VStack {
+            Button(action: {
+                emojis = ["🚀", "🚴‍♀️", "⛴", "🚖",
+                          "✈️", "🚗", "🚙", "🚛"].shuffled()
+                emojiCount = Int.random(in: 4...8)
+            }, label: {
+                Image(systemName: "car")
+            })
+            Text("Vehicles")
+                .font(.footnote)
+                .foregroundColor(Color.blue)
+        }
+    }
+    
+    var faceIcon: some View {
+        VStack {
+            Button(action: {
+                emojis = ["😀", "😃", "😄", "😁",
+                          "😅", "😂", "🤣", "🥲"].shuffled()
+                emojiCount = Int.random(in: 4...8)
+            }, label: {
+                Image(systemName: "face.smiling")
+            })
+            Text("Faces")
+                .font(.footnote)
+                .foregroundColor(Color.blue)
+        }
+    }
+    
+    var flagIcon: some View {
+        VStack {
+            Button(action: {
+                emojis = ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈",
+                          "🇫🇲", "🇸🇨", "🇩🇰", "🇦🇪"].shuffled()
+                emojiCount = Int.random(in: 4...8)
+            }, label: {
+                Image(systemName: "flag")
+            })
+            Text("Flags")
+                .font(.footnote)
+                .foregroundColor(Color.blue)
+        }
     }
     
     var add: some View {
