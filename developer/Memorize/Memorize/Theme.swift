@@ -16,7 +16,7 @@ struct Theme {
     init() {
         name = "Vehicle"
         emojis = ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"]
-        numPairOfCardsToShow = 6
+        numPairOfCardsToShow = 9
         color = "orange"
     }
 }
