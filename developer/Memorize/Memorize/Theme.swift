@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct Theme {
+    let name: String
+    let emojis: Array<String>
+    let numPairOfCardsToShow: Int
+    let color: String
+    
+    init() {
+        name = "Vehicle"
+        emojis = ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"]
+        numPairOfCardsToShow = 6
+        color = "orange"
+    }
+}
