@@ -9,7 +9,7 @@ import SwiftUI
 
 
 class EmojiMemoryGame: ObservableObject {
-    var theme: Theme
+    private(set) var theme: Theme
     @Published private var model: MemoryGame<String>
     
     init() {
