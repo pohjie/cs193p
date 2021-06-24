@@ -29,19 +29,30 @@ struct ContentView: View {
             
             Spacer()
             
-            Button(
-                action: {
-                    viewModel.resetGame()
-                },
-                label: {
-                    VStack {
-                        Image(systemName: "restart")
-                        Text("New game")
-                                        .font(.footnote)
-                                        .foregroundColor(.blue)
+            HStack{
+                Button(
+                    action: {
+                        viewModel.resetGame()
+                    },
+                    label: {
+                        VStack {
+                            Image(systemName: "restart")
+                            Text("New game")
+                                .font(.footnote)
+                                .foregroundColor(.blue)
+                        }
                     }
+                )
+//                Spacer()
+                VStack {
+                    Image(systemName: "pencil.and.outline")
+                    Text(viewModel.theme.name)
+                        
                 }
-            )
+                .font(.footnote)
+                .foregroundColor(.blue)
+            }
+            
         }
     }
 }
