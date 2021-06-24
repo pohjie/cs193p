@@ -8,6 +8,8 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
+    private(set) var score: Int
+    
     private(set) var cards: Array<Card>
     
     private var indexOfTheOneAndOnlyFaceUpCard: Int?
@@ -21,6 +23,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
+                    
+                    // Add 2 points for matching
+                    self.score += 2
                 }
                 indexOfTheOneAndOnlyFaceUpCard = nil
             } else {
@@ -36,6 +41,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
+        score = 0
+        
         cards = Array<Card>()
         // add numberOfPairOfCards X 2 cards to cards array
         for pairIndex in 0..<numberOfPairsOfCards {
