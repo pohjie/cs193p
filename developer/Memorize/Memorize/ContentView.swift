@@ -26,25 +26,23 @@ struct ContentView: View {
             .foregroundColor(viewModel.color)
             //.foregroundColor(.red)
             .padding(.horizontal)
+            
             Spacer()
-            newGameIcon
-        }
-    }
-    
-    var newGameIcon: some View {
-        Button(
-            action: {
-                print("pressed")
-            },
-            label: {
-                VStack {
-                    Image(systemName: "restart")
-                    Text("New game")
-                                    .font(.footnote)
-                                    .foregroundColor(.blue)
+            
+            Button(
+                action: {
+                    viewModel.resetGame()
+                },
+                label: {
+                    VStack {
+                        Image(systemName: "restart")
+                        Text("New game")
+                                        .font(.footnote)
+                                        .foregroundColor(.blue)
+                    }
                 }
-            }
-        )
+            )
+        }
     }
 }
 

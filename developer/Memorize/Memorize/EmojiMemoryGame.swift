@@ -13,8 +13,8 @@ class EmojiMemoryGame: ObservableObject {
     @Published private var model: MemoryGame<String>
     
     init() {
-        self.theme = Theme.themes.randomElement() ?? Theme.faces
-        model = EmojiMemoryGame.createMemoryGame(theme)
+        self.theme = Theme.themes.randomElement()!
+        model = EmojiMemoryGame.createMemoryGame(self.theme)
     }
 
     static func createMemoryGame(_ theme: Theme) -> MemoryGame<String> {
@@ -27,18 +27,17 @@ class EmojiMemoryGame: ObservableObject {
             Array(Set(theme.emojis))[pairIndex]
         }
     }
-    
-    // @Published private var model: MemoryGame<String> = createMemoryGame(theme)
-        
+            
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
     }
     
     var color: Color {
-        // print(Color(EmojiMemoryGame.theme.color))
         switch theme.color {
-            case "orange": return Color.orange
-            default: return Color.red
+        case "orange": return Color.orange
+        case "blue": return Color.blue
+        case "purple": return Color.purple
+        default: return Color.red
         }
     }
     
@@ -46,5 +45,8 @@ class EmojiMemoryGame: ObservableObject {
         model.choose(card)
     }
     
-
+    func resetGame() {
+        theme = Theme.themes.randomElement()!
+        model = EmojiMemoryGame.createMemoryGame(theme)
+    }
 }
