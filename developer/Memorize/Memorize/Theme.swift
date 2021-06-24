@@ -14,11 +14,11 @@ struct Theme {
     var color: String
     
     // Array of themes
-    static let vehicles = Theme(name: "Vehicle", emojis: ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"],
-                                numPairOfCardsToShow: 4, color: "orange")
-    static let faces = Theme(name: "Face", emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣"],
+    static var vehicles = Theme(name: "Vehicle", emojis: ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"],
+                                numPairOfCardsToShow: 6, color: "orange")
+    static var faces = Theme(name: "Face", emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣"],
                              numPairOfCardsToShow: 6, color: "blue")
-    static let flags = Theme(name: "Flag", emojis: ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈", "🇫🇲", "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "🇸🇨", "🇩🇰"],
+    static var flags = Theme(name: "Flag", emojis: ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈", "🇫🇲", "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "🇸🇨", "🇩🇰"],
                              numPairOfCardsToShow: 7, color: "purple")
     
     static var themes = [vehicles, faces, flags]

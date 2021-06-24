@@ -24,7 +24,6 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(viewModel.color)
-            //.foregroundColor(.red)
             .padding(.horizontal)
             
             Spacer()

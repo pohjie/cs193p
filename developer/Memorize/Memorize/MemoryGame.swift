@@ -26,15 +26,30 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     
                     // Add 2 points for matching
                     self.score += 2
+                } else {
+                    print("mismatch!")
+                    if cards[chosenIndex].isPreviouslySeen {
+                        self.score -= 1
+                    }
+                    if cards[potentialMatchIndex].isPreviouslySeen {
+                        self.score -= 1
+                    }
                 }
                 indexOfTheOneAndOnlyFaceUpCard = nil
             } else {
                 for index in cards.indices {
+                    if cards[index].isFaceUp && !cards[index].isPreviouslySeen {
+                        print("setting to previously seen!")
+                        cards[index].isPreviouslySeen = true
+                    }
                     cards[index].isFaceUp = false
                 }
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
+            
             cards[chosenIndex].isFaceUp.toggle()
+            
+
         }
         
         print("\(cards)")
@@ -55,8 +70,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     struct Card: Identifiable {
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
+        var isPreviouslySeen: Bool = false
         var content: CardContent
         var id: Int
     }
