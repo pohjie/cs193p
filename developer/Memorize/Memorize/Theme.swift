@@ -8,15 +8,18 @@
 import Foundation
 
 struct Theme {
-    let name: String
-    let emojis: Array<String>
-    let numPairOfCardsToShow: Int
-    let color: String
+    var name: String
+    var emojis: Array<String>
+    var numPairOfCardsToShow: Int
+    var color: String
     
-    init() {
-        name = "Vehicle"
-        emojis = ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"]
-        numPairOfCardsToShow = 9
-        color = "orange"
-    }
+    // Array of themes
+    static let vehicles = Theme(name: "Vehicle", emojis: ["✈️", "🚗", "🚀", "🚘", "🚙", "🚎", "🚛", "🏎"],
+                                numPairOfCardsToShow: 4, color: "orange")
+    static let faces = Theme(name: "Face", emojis: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣"],
+                             numPairOfCardsToShow: 6, color: "blue")
+    static let flags = Theme(name: "Flag", emojis: ["🇬🇧", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇺🇸", "🏳️‍🌈", "🇫🇲", "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "🇸🇨", "🇩🇰"],
+                             numPairOfCardsToShow: 7, color: "purple")
+    
+    static var themes = [vehicles, faces, flags]
 }
